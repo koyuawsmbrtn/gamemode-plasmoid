@@ -1,0 +1,88 @@
+# English (US) translation for gamemodechecker
+# Copyright (C) 2025 The gamemodechecker contributors
+# This file is distributed under the same license as the gamemodechecker package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gamemodechecker\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-24 12:00+0000\n"
+"PO-Revision-Date: 2025-01-24 12:00+0000\n"
+"Last-Translator: Gamemode Plasmoid Team\n"
+"Language-Team: English\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: contents/config/config.qml:6
+msgid "General"
+msgstr "General"
+
+#: contents/ui/configGeneral.qml:22
+msgid "Active color:"
+msgstr "Active color:"
+
+#: contents/ui/configGeneral.qml:102
+msgid "Click to choose color"
+msgstr "Click to choose color"
+
+#: contents/ui/configGeneral.qml:115
+msgid "Update interval:"
+msgstr "Update interval:"
+
+#: contents/ui/configGeneral.qml:137
+msgid "Choose Active Color"
+msgstr "Choose Active Color"
+
+#: contents/ui/configGeneral.qml:185
+msgid "Red:"
+msgstr "Red:"
+
+#: contents/ui/configGeneral.qml:247
+msgid "Green:"
+msgstr "Green:"
+
+#: contents/ui/configGeneral.qml:309
+msgid "Blue:"
+msgstr "Blue:"
+
+#: contents/ui/configGeneral.qml:372
+msgid "Hex:"
+msgstr "Hex:"
+
+#: contents/ui/configGeneral.qml:387
+msgid "Please enter a valid hex color (e.g., #FF0000)"
+msgstr "Please enter a valid hex color (e.g., #FF0000)"
+
+#: contents/ui/configGeneral.qml:393
+msgid "Common Colors:"
+msgstr "Common Colors:"
+
+#: contents/ui/configGeneral.qml:447
+msgid "Cancel"
+msgstr "Cancel"
+
+#: contents/ui/configGeneral.qml:457
+msgid "Reset"
+msgstr "Reset"
+
+#: contents/ui/configGeneral.qml:465
+msgid "Reset to original color"
+msgstr "Reset to original color"
+
+#: contents/ui/configGeneral.qml:472
+msgid "Apply"
+msgstr "Apply"
+
+#: contents/ui/configGeneral.qml:481
+msgid "No changes to apply"
+msgstr "No changes to apply"
+
+#: contents/ui/configGeneral.qml:481
+msgid "Invalid color selected"
+msgstr "Invalid color selected"
+
+#: contents/ui/configGeneral.qml:486
+msgid "OK"
+msgstr "OK"

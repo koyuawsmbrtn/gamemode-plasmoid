@@ -13,5 +13,7 @@
   },
   "X-Plasma-API-Minimum-Version": "6.0",
   "KPackageStructure": "Plasma/Applet",
-  "X-Plasma-Shell": "plasma-desktop"
+  "X-Plasma-Shell": "plasma-desktop",
+  "X-KDE-PluginInfo-Name": "gamemodechecker",
+  "X-Plasma-TranslationDomain": "plasma_applet_gamemodechecker"
 }

@@ -4,9 +4,13 @@ import QtQuick.Layouts
 import QtQuick.Dialogs
 import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCM
+import org.kde.plasma.core as PlasmaCore
 
 KCM.SimpleKCM {
     id: configGeneral
+    
+    // Set up translation context
+    property string translationDomain: "plasma_applet_gamemodechecker"
     
     property color cfg_activeColor: "#4ade80"
     property int cfg_pollInterval: 2000
