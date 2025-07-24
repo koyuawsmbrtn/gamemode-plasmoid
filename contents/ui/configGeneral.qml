@@ -162,7 +162,7 @@ KCM.SimpleKCM {
     Kirigami.Dialog {
         id: colorDialog
         title: i18n("Choose Active Color")
-        width: 400
+        width: 500
         height: 520
         
         property color currentColor: colorButton.selectedColor
@@ -181,7 +181,7 @@ KCM.SimpleKCM {
             // Color preview
             Rectangle {
                 id: colorPreview
-                Layout.preferredWidth: 360
+                Layout.preferredWidth: 460
                 Layout.preferredHeight: 60
                 Layout.alignment: Qt.AlignHCenter
                 color: colorDialog.currentColor
@@ -220,7 +220,9 @@ KCM.SimpleKCM {
                         value: Math.round(colorDialog.currentColor.r * 255)
                         
                         onValueChanged: {
-                            colorDialog.currentColor = Qt.rgba(value / 255, colorDialog.currentColor.g, colorDialog.currentColor.b, 1)
+                            if (Math.round(colorDialog.currentColor.r * 255) !== value) {
+                                colorDialog.currentColor = Qt.rgba(value / 255, colorDialog.currentColor.g, colorDialog.currentColor.b, 1)
+                            }
                         }
                         
                         background: Rectangle {
@@ -265,8 +267,12 @@ KCM.SimpleKCM {
                     SpinBox {
                         from: 0
                         to: 255
-                        value: redSlider.value
-                        onValueChanged: redSlider.value = value
+                        value: Math.round(colorDialog.currentColor.r * 255)
+                        onValueChanged: {
+                            if (Math.round(colorDialog.currentColor.r * 255) !== value) {
+                                redSlider.value = value
+                            }
+                        }
                     }
                 }
                 
@@ -282,7 +288,9 @@ KCM.SimpleKCM {
                         value: Math.round(colorDialog.currentColor.g * 255)
                         
                         onValueChanged: {
-                            colorDialog.currentColor = Qt.rgba(colorDialog.currentColor.r, value / 255, colorDialog.currentColor.b, 1)
+                            if (Math.round(colorDialog.currentColor.g * 255) !== value) {
+                                colorDialog.currentColor = Qt.rgba(colorDialog.currentColor.r, value / 255, colorDialog.currentColor.b, 1)
+                            }
                         }
                         
                         background: Rectangle {
@@ -327,8 +335,12 @@ KCM.SimpleKCM {
                     SpinBox {
                         from: 0
                         to: 255
-                        value: greenSlider.value
-                        onValueChanged: greenSlider.value = value
+                        value: Math.round(colorDialog.currentColor.g * 255)
+                        onValueChanged: {
+                            if (Math.round(colorDialog.currentColor.g * 255) !== value) {
+                                greenSlider.value = value
+                            }
+                        }
                     }
                 }
                 
@@ -344,7 +356,9 @@ KCM.SimpleKCM {
                         value: Math.round(colorDialog.currentColor.b * 255)
                         
                         onValueChanged: {
-                            colorDialog.currentColor = Qt.rgba(colorDialog.currentColor.r, colorDialog.currentColor.g, value / 255, 1)
+                            if (Math.round(colorDialog.currentColor.b * 255) !== value) {
+                                colorDialog.currentColor = Qt.rgba(colorDialog.currentColor.r, colorDialog.currentColor.g, value / 255, 1)
+                            }
                         }
                         
                         background: Rectangle {
@@ -389,8 +403,12 @@ KCM.SimpleKCM {
                     SpinBox {
                         from: 0
                         to: 255
-                        value: blueSlider.value
-                        onValueChanged: blueSlider.value = value
+                        value: Math.round(colorDialog.currentColor.b * 255)
+                        onValueChanged: {
+                            if (Math.round(colorDialog.currentColor.b * 255) !== value) {
+                                blueSlider.value = value
+                            }
+                        }
                     }
                 }
                 
@@ -401,12 +419,22 @@ KCM.SimpleKCM {
                     placeholderText: "#RRGGBB"
                     
                     property bool isValidHex: text.match(/^#[0-9A-Fa-f]{6}$/)
+                    property bool updating: false
                     
                     color: isValidHex ? Kirigami.Theme.textColor : Kirigami.Theme.negativeTextColor
                     
                     onTextChanged: {
-                        if (isValidHex) {
+                        if (!updating && isValidHex && text !== colorDialog.currentColor.toString().toUpperCase()) {
                             colorDialog.currentColor = text
+                        }
+                    }
+                    
+                    Connections {
+                        target: colorDialog
+                        function onCurrentColorChanged() {
+                            colorInput.updating = true
+                            colorInput.text = colorDialog.currentColor.toString().toUpperCase()
+                            colorInput.updating = false
                         }
                     }
                     
@@ -492,18 +520,6 @@ KCM.SimpleKCM {
                     ToolTip.text: i18n("Reset to original color")
                 }
                 
-                Button {
-                    id: defaultColorButton
-                    text: i18n("Default")
-                    icon.name: "edit-reset"
-                    onClicked: {
-                        colorDialog.currentColor = configGeneral.cfg_activeColorDefault
-                    }
-                    
-                    ToolTip.visible: hovered
-                    ToolTip.text: i18n("Set to default color")
-                }
-                
                 Item { Layout.fillWidth: true }
                 
                 Button {
@@ -542,10 +558,13 @@ KCM.SimpleKCM {
     Kirigami.Dialog {
         id: resetDialog
         title: i18n("Reset to Defaults")
-        width: 450
-        height: 250
+        width: 520
+        height: 220
+        
+        padding: Kirigami.Units.largeSpacing
         
         ColumnLayout {
+            anchors.fill: parent
             spacing: Kirigami.Units.largeSpacing
             
             RowLayout {
