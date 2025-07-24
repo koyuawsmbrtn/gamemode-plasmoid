@@ -1,0 +1,1 @@
+rm -f gamemodechecker.plasmoid && zip -r gamemodechecker.plasmoid . --exclude \*.git\* --exclude \*.sh
