@@ -6,6 +6,10 @@ import org.kde.kirigami 2.20 as Kirigami
 PlasmoidItem {
     width: 32
     height: 32
+    
+    // Configuration properties
+    property color activeColor: plasmoid.configuration.activeColor || "#4ade80"
+    property int pollInterval: plasmoid.configuration.pollInterval || 2000
 
     Plasma5Support.DataSource {
         id: dataSource
@@ -39,8 +43,8 @@ PlasmoidItem {
             anchors.fill: parent
             source: "input-gamepad-symbolic"
             
-            // Simple color change - green when active, normal when inactive
-            color: parent.isActive ? "#4ade80" : Kirigami.Theme.textColor
+            // Simple color change - use configured color when active, normal when inactive
+            color: parent.isActive ? activeColor : Kirigami.Theme.textColor
             isMask: true
             
             Behavior on color {
@@ -51,7 +55,7 @@ PlasmoidItem {
 
     Timer {
         id: pollTimer
-        interval: 2000
+        interval: pollInterval
         repeat: true
         running: true
         triggeredOnStart: true
