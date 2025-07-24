@@ -558,8 +558,7 @@ KCM.SimpleKCM {
     Kirigami.Dialog {
         id: resetDialog
         title: i18n("Reset to Defaults")
-        width: 520
-        height: 220
+        height: 320
         
         padding: Kirigami.Units.largeSpacing
         
@@ -567,24 +566,30 @@ KCM.SimpleKCM {
             anchors.fill: parent
             spacing: Kirigami.Units.largeSpacing
             
-            RowLayout {
+            // Icon and text section
+            ColumnLayout {
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignHCenter
                 spacing: Kirigami.Units.largeSpacing
                 
                 Kirigami.Icon {
-                    Layout.preferredWidth: 48
-                    Layout.preferredHeight: 48
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.preferredWidth: 64
+                    Layout.preferredHeight: 64
                     source: "dialog-warning"
                     color: Kirigami.Theme.neutralTextColor
                 }
                 
                 ColumnLayout {
                     Layout.fillWidth: true
+                    Layout.alignment: Qt.AlignHCenter
                     spacing: Kirigami.Units.smallSpacing
                     
                     Label {
                         Layout.fillWidth: true
                         text: i18n("Reset all settings to default values?")
                         wrapMode: Text.Wrap
+                        horizontalAlignment: Text.AlignHCenter
                         font.bold: true
                         font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1.1
                     }
@@ -595,6 +600,7 @@ KCM.SimpleKCM {
                         property real intervalText: configGeneral.cfg_pollIntervalDefault / 1000
                         text: i18n("This will restore the active color to %1 and the update interval to %2 seconds.", colorText, intervalText)
                         wrapMode: Text.Wrap
+                        horizontalAlignment: Text.AlignHCenter
                         color: Kirigami.Theme.disabledTextColor
                     }
                     
@@ -602,6 +608,7 @@ KCM.SimpleKCM {
                         Layout.fillWidth: true
                         text: i18n("This action cannot be undone.")
                         wrapMode: Text.Wrap
+                        horizontalAlignment: Text.AlignHCenter
                         color: Kirigami.Theme.negativeTextColor
                         font.italic: true
                         font.pointSize: Kirigami.Theme.defaultFont.pointSize * 0.9
@@ -611,15 +618,15 @@ KCM.SimpleKCM {
             
             RowLayout {
                 Layout.fillWidth: true
+                Layout.alignment: Qt.AlignHCenter
                 Layout.topMargin: Kirigami.Units.largeSpacing
+                spacing: Kirigami.Units.largeSpacing
                 
                 Button {
                     text: i18n("Cancel")
                     icon.name: "dialog-cancel"
                     onClicked: resetDialog.close()
                 }
-                
-                Item { Layout.fillWidth: true }
                 
                 Button {
                     text: i18n("Reset to Defaults")
