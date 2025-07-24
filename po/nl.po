@@ -1,0 +1,120 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: gamemodechecker\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-24 12:00+0000\n"
+"PO-Revision-Date: 2025-07-24 10:56+0200\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.6\n"
+
+#: contents/config/config.qml:6
+msgid "General"
+msgstr "Algemeen"
+
+#: contents/ui/configGeneral.qml:22
+msgid "Active color:"
+msgstr "Actieve kleur:"
+
+#: contents/ui/configGeneral.qml:102
+msgid "Click to choose color"
+msgstr "Klik om een kleur te kiezen"
+
+#: contents/ui/configGeneral.qml:115
+msgid "Update interval:"
+msgstr "Bijwerken, elke:"
+
+#: contents/ui/configGeneral.qml:137
+msgid "Choose Active Color"
+msgstr "Actieve kleur kiezen"
+
+#: contents/ui/configGeneral.qml:185
+msgid "Red:"
+msgstr "Rood:"
+
+#: contents/ui/configGeneral.qml:247
+msgid "Green:"
+msgstr "Groen:"
+
+#: contents/ui/configGeneral.qml:309
+msgid "Blue:"
+msgstr "Blauw:"
+
+#: contents/ui/configGeneral.qml:372
+msgid "Hex:"
+msgstr "Hexcode:"
+
+#: contents/ui/configGeneral.qml:387
+msgid "Please enter a valid hex color (e.g., #FF0000)"
+msgstr "Voer een geldige hexkleur in, bijv. #FF0000"
+
+#: contents/ui/configGeneral.qml:393
+msgid "Common Colors:"
+msgstr "Gebruikelijke kleuren:"
+
+#: contents/ui/configGeneral.qml:447 contents/ui/configGeneral.qml:186
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: contents/ui/configGeneral.qml:457
+msgid "Reset"
+msgstr "Standaardwaarde"
+
+#: contents/ui/configGeneral.qml:465
+msgid "Reset to original color"
+msgstr "Herstel de oorspronkelijke kleur"
+
+#: contents/ui/configGeneral.qml:472
+msgid "Apply"
+msgstr "Toepassen"
+
+#: contents/ui/configGeneral.qml:481
+msgid "No changes to apply"
+msgstr "Er valt niets toe te passen"
+
+#: contents/ui/configGeneral.qml:481
+msgid "Invalid color selected"
+msgstr "Ongeldige kleur gekozen"
+
+#: contents/ui/configGeneral.qml:486
+msgid "OK"
+msgstr "Oké"
+
+#: contents/ui/configGeneral.qml:145 contents/ui/configGeneral.qml:156
+#: contents/ui/configGeneral.qml:193
+msgid "Reset to Defaults"
+msgstr "Standaardwaarden herstellen"
+
+#: contents/ui/configGeneral.qml:150
+msgid "Reset all settings to their default values"
+msgstr "Zet alle instellingen terug op de standaardwaarden"
+
+#: contents/ui/configGeneral.qml:171
+msgid "Are you sure you want to reset all settings to their default values?"
+msgstr "Weet je zeker dat je alle standaardwaarden wilt herstellen?"
+
+#: contents/ui/configGeneral.qml:178
+msgid "This action cannot be undone."
+msgstr "Deze actie is onomkeerbaar."
+
+#: contents/ui/configGeneral.qml:144
+msgid "Reset Configuration"
+msgstr "Instellingen herstellen"
+
+#: contents/ui/configGeneral.qml:475
+msgid "Default"
+msgstr "Standaard"
+
+#: contents/ui/configGeneral.qml:482
+msgid "Set to default color"
+msgstr "Standaardkleur gebruiken"
