@@ -136,9 +136,17 @@ KCM.SimpleKCM {
         id: colorDialog
         title: i18n("Choose Active Color")
         width: 400
-        height: 450
+        height: 520
         
         property color currentColor: colorButton.selectedColor
+        property color initialColor: colorButton.selectedColor
+        property bool isValidColor: currentColor.valid && currentColor.a > 0
+        property bool hasChanges: currentColor.toString() !== initialColor.toString()
+        
+        onOpened: {
+            initialColor = colorButton.selectedColor
+            currentColor = colorButton.selectedColor
+        }
         
         ColumnLayout {
             spacing: Kirigami.Units.largeSpacing
@@ -365,11 +373,18 @@ KCM.SimpleKCM {
                     text: colorDialog.currentColor.toString().toUpperCase()
                     placeholderText: "#RRGGBB"
                     
+                    property bool isValidHex: text.match(/^#[0-9A-Fa-f]{6}$/)
+                    
+                    color: isValidHex ? Kirigami.Theme.textColor : Kirigami.Theme.negativeTextColor
+                    
                     onTextChanged: {
-                        if (text.match(/^#[0-9A-Fa-f]{6}$/)) {
+                        if (isValidHex) {
                             colorDialog.currentColor = text
                         }
                     }
+                    
+                    ToolTip.visible: !isValidHex && activeFocus
+                    ToolTip.text: i18n("Please enter a valid hex color (e.g., #FF0000)")
                 }
             }
             
@@ -428,21 +443,57 @@ KCM.SimpleKCM {
                 Layout.fillWidth: true
                 
                 Button {
+                    id: cancelButton
                     text: i18n("Cancel")
+                    icon.name: "dialog-cancel"
                     onClicked: {
+                        colorDialog.currentColor = colorDialog.initialColor
                         colorDialog.close()
                     }
+                }
+                
+                Button {
+                    id: resetButton
+                    text: i18n("Reset")
+                    icon.name: "edit-undo"
+                    enabled: colorDialog.hasChanges
+                    onClicked: {
+                        colorDialog.currentColor = colorDialog.initialColor
+                    }
+                    
+                    ToolTip.visible: hovered
+                    ToolTip.text: i18n("Reset to original color")
                 }
                 
                 Item { Layout.fillWidth: true }
                 
                 Button {
+                    id: applyButton
+                    text: i18n("Apply")
+                    icon.name: "dialog-ok-apply"
+                    enabled: colorDialog.isValidColor && colorDialog.hasChanges
+                    onClicked: {
+                        colorButton.selectedColor = colorDialog.currentColor
+                        colorDialog.initialColor = colorDialog.currentColor
+                    }
+                    
+                    ToolTip.visible: hovered && !enabled
+                    ToolTip.text: !colorDialog.hasChanges ? i18n("No changes to apply") : i18n("Invalid color selected")
+                }
+                
+                Button {
+                    id: okButton
                     text: i18n("OK")
+                    icon.name: "dialog-ok"
                     highlighted: true
+                    enabled: colorDialog.isValidColor
                     onClicked: {
                         colorButton.selectedColor = colorDialog.currentColor
                         colorDialog.close()
                     }
+                    
+                    ToolTip.visible: hovered && !enabled
+                    ToolTip.text: i18n("Invalid color selected")
                 }
             }
         }
