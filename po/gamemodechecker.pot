@@ -88,3 +88,43 @@ msgstr ""
 #: contents/ui/configGeneral.qml:486
 msgid "OK"
 msgstr ""
+
+#: contents/ui/configGeneral.qml:145
+msgid "Reset to Defaults"
+msgstr ""
+
+#: contents/ui/configGeneral.qml:150
+msgid "Reset all settings to their default values"
+msgstr ""
+
+#: contents/ui/configGeneral.qml:156
+msgid "Reset to Defaults"
+msgstr ""
+
+#: contents/ui/configGeneral.qml:171
+msgid "Are you sure you want to reset all settings to their default values?"
+msgstr ""
+
+#: contents/ui/configGeneral.qml:178
+msgid "This action cannot be undone."
+msgstr ""
+
+#: contents/ui/configGeneral.qml:186
+msgid "Cancel"
+msgstr ""
+
+#: contents/ui/configGeneral.qml:193
+msgid "Reset to Defaults"
+msgstr ""
+
+#: contents/ui/configGeneral.qml:144
+msgid "Reset Configuration"
+msgstr ""
+
+#: contents/ui/configGeneral.qml:475
+msgid "Default"
+msgstr ""
+
+#: contents/ui/configGeneral.qml:482
+msgid "Set to default color"
+msgstr ""

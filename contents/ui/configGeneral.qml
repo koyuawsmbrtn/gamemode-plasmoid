@@ -134,6 +134,29 @@ KCM.SimpleKCM {
                 return Number.fromLocaleString(locale, text.replace(" s", "")) * 1000
             }
         }
+        
+        Item {
+            Layout.fillHeight: true
+            Layout.preferredHeight: Kirigami.Units.largeSpacing * 2
+        }
+        
+        RowLayout {
+            Layout.fillWidth: true
+            Layout.topMargin: Kirigami.Units.largeSpacing
+            
+            Item { Layout.fillWidth: true }
+            
+            Button {
+                id: resetToDefaultsButton
+                text: i18n("Reset to Defaults")
+                icon.name: "edit-reset"
+                
+                onClicked: resetDialog.open()
+                
+                ToolTip.visible: hovered
+                ToolTip.text: i18n("Reset all settings to their default values")
+            }
+        }
     }
 
     Kirigami.Dialog {
@@ -469,6 +492,18 @@ KCM.SimpleKCM {
                     ToolTip.text: i18n("Reset to original color")
                 }
                 
+                Button {
+                    id: defaultColorButton
+                    text: i18n("Default")
+                    icon.name: "edit-reset"
+                    onClicked: {
+                        colorDialog.currentColor = configGeneral.cfg_activeColorDefault
+                    }
+                    
+                    ToolTip.visible: hovered
+                    ToolTip.text: i18n("Set to default color")
+                }
+                
                 Item { Layout.fillWidth: true }
                 
                 Button {
@@ -498,6 +533,85 @@ KCM.SimpleKCM {
                     
                     ToolTip.visible: hovered && !enabled
                     ToolTip.text: i18n("Invalid color selected")
+                }
+            }
+        }
+    }
+
+    // Reset to defaults confirmation dialog
+    Kirigami.Dialog {
+        id: resetDialog
+        title: i18n("Reset to Defaults")
+        width: 450
+        height: 250
+        
+        ColumnLayout {
+            spacing: Kirigami.Units.largeSpacing
+            
+            RowLayout {
+                spacing: Kirigami.Units.largeSpacing
+                
+                Kirigami.Icon {
+                    Layout.preferredWidth: 48
+                    Layout.preferredHeight: 48
+                    source: "dialog-warning"
+                    color: Kirigami.Theme.neutralTextColor
+                }
+                
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    spacing: Kirigami.Units.smallSpacing
+                    
+                    Label {
+                        Layout.fillWidth: true
+                        text: i18n("Reset all settings to default values?")
+                        wrapMode: Text.Wrap
+                        font.bold: true
+                        font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1.1
+                    }
+                    
+                    Label {
+                        Layout.fillWidth: true
+                        property string colorText: configGeneral.cfg_activeColorDefault.toString().toUpperCase()
+                        property real intervalText: configGeneral.cfg_pollIntervalDefault / 1000
+                        text: i18n("This will restore the active color to %1 and the update interval to %2 seconds.", colorText, intervalText)
+                        wrapMode: Text.Wrap
+                        color: Kirigami.Theme.disabledTextColor
+                    }
+                    
+                    Label {
+                        Layout.fillWidth: true
+                        text: i18n("This action cannot be undone.")
+                        wrapMode: Text.Wrap
+                        color: Kirigami.Theme.negativeTextColor
+                        font.italic: true
+                        font.pointSize: Kirigami.Theme.defaultFont.pointSize * 0.9
+                    }
+                }
+            }
+            
+            RowLayout {
+                Layout.fillWidth: true
+                Layout.topMargin: Kirigami.Units.largeSpacing
+                
+                Button {
+                    text: i18n("Cancel")
+                    icon.name: "dialog-cancel"
+                    onClicked: resetDialog.close()
+                }
+                
+                Item { Layout.fillWidth: true }
+                
+                Button {
+                    text: i18n("Reset to Defaults")
+                    icon.name: "edit-reset"
+                    highlighted: true
+                    onClicked: {
+                        // Reset to default values
+                        colorButton.selectedColor = configGeneral.cfg_activeColorDefault
+                        pollIntervalSpinBox.value = configGeneral.cfg_pollIntervalDefault
+                        resetDialog.close()
+                    }
                 }
             }
         }

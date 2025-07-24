@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gamemodechecker\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-24 12:00+0000\n"
+"POT-Creation-Date: 2025-07-24 07:18+0200\n"
 "PO-Revision-Date: 2025-01-24 12:00+0000\n"
 "Last-Translator: Gamemode Plasmoid Team\n"
 "Language-Team: German\n"
@@ -15,74 +15,115 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: contents/ui/configGeneral.qml:26
+msgid "Active color:"
+msgstr "Aktive Farbe:"
+
+#: contents/ui/configGeneral.qml:106
+msgid "Click to choose color"
+msgstr "Klicken Sie, um eine Farbe zu wählen"
+
+#: contents/ui/configGeneral.qml:119
+msgid "Update interval:"
+msgstr "Aktualisierungsintervall:"
+
+#: contents/ui/configGeneral.qml:151 contents/ui/configGeneral.qml:544
+#: contents/ui/configGeneral.qml:606
+msgid "Reset to Defaults"
+msgstr "Auf Standard zurücksetzen"
+
+#: contents/ui/configGeneral.qml:157
+msgid "Reset all settings to their default values"
+msgstr "Alle Einstellungen auf ihre Standardwerte zurücksetzen"
+
+#: contents/ui/configGeneral.qml:164
+msgid "Choose Active Color"
+msgstr "Aktive Farbe wählen"
+
+#: contents/ui/configGeneral.qml:212
+msgid "Red:"
+msgstr "Rot:"
+
+#: contents/ui/configGeneral.qml:274
+msgid "Green:"
+msgstr "Grün:"
+
+#: contents/ui/configGeneral.qml:336
+msgid "Blue:"
+msgstr "Blau:"
+
+#: contents/ui/configGeneral.qml:399
+msgid "Hex:"
+msgstr "Hex:"
+
+#: contents/ui/configGeneral.qml:414
+msgid "Please enter a valid hex color (e.g., #FF0000)"
+msgstr "Bitte geben Sie eine gültige Hex-Farbe ein (z.B. #FF0000)"
+
+#: contents/ui/configGeneral.qml:420
+msgid "Common Colors:"
+msgstr "Häufige Farben:"
+
+#: contents/ui/configGeneral.qml:474 contents/ui/configGeneral.qml:598
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: contents/ui/configGeneral.qml:484
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: contents/ui/configGeneral.qml:492
+msgid "Reset to original color"
+msgstr "Auf ursprüngliche Farbe zurücksetzen"
+
+#: contents/ui/configGeneral.qml:497
+msgid "Default"
+msgstr "Standard"
+
+#: contents/ui/configGeneral.qml:504
+msgid "Set to default color"
+msgstr "Auf Standardfarbe setzen"
+
+#: contents/ui/configGeneral.qml:511
+msgid "Apply"
+msgstr "Anwenden"
+
+#: contents/ui/configGeneral.qml:520
+msgid "No changes to apply"
+msgstr "Keine Änderungen zum Anwenden"
+
+#: contents/ui/configGeneral.qml:520 contents/ui/configGeneral.qml:535
+msgid "Invalid color selected"
+msgstr "Ungültige Farbe ausgewählt"
+
+#: contents/ui/configGeneral.qml:525
+msgid "OK"
+msgstr "OK"
+
+#: contents/ui/configGeneral.qml:567
+msgid "Reset all settings to default values?"
+msgstr "Alle Einstellungen auf Standardwerte zurücksetzen?"
+
+#: contents/ui/configGeneral.qml:577
+msgid ""
+"This will restore the active color to %1 and the update interval to %2 "
+"seconds."
+msgstr ""
+"Dies stellt die aktive Farbe auf %1 und das Aktualisierungsintervall auf %2 "
+"Sekunden zurück."
+
+#: contents/ui/configGeneral.qml:584
+msgid "This action cannot be undone."
+msgstr "Diese Aktion kann nicht rückgängig gemacht werden."
+
 #: contents/config/config.qml:6
 msgid "General"
 msgstr "Allgemein"
 
-#: contents/ui/configGeneral.qml:22
-msgid "Active color:"
-msgstr "Aktive Farbe:"
+#~ msgid "Are you sure you want to reset all settings to their default values?"
+#~ msgstr ""
+#~ "Sind Sie sicher, dass Sie alle Einstellungen auf ihre Standardwerte "
+#~ "zurücksetzen möchten?"
 
-#: contents/ui/configGeneral.qml:102
-msgid "Click to choose color"
-msgstr "Klicken Sie, um eine Farbe zu wählen"
-
-#: contents/ui/configGeneral.qml:115
-msgid "Update interval:"
-msgstr "Aktualisierungsintervall:"
-
-#: contents/ui/configGeneral.qml:137
-msgid "Choose Active Color"
-msgstr "Aktive Farbe wählen"
-
-#: contents/ui/configGeneral.qml:185
-msgid "Red:"
-msgstr "Rot:"
-
-#: contents/ui/configGeneral.qml:247
-msgid "Green:"
-msgstr "Grün:"
-
-#: contents/ui/configGeneral.qml:309
-msgid "Blue:"
-msgstr "Blau:"
-
-#: contents/ui/configGeneral.qml:372
-msgid "Hex:"
-msgstr "Hex:"
-
-#: contents/ui/configGeneral.qml:387
-msgid "Please enter a valid hex color (e.g., #FF0000)"
-msgstr "Bitte geben Sie eine gültige Hex-Farbe ein (z.B. #FF0000)"
-
-#: contents/ui/configGeneral.qml:393
-msgid "Common Colors:"
-msgstr "Häufige Farben:"
-
-#: contents/ui/configGeneral.qml:447
-msgid "Cancel"
-msgstr "Abbrechen"
-
-#: contents/ui/configGeneral.qml:457
-msgid "Reset"
-msgstr "Zurücksetzen"
-
-#: contents/ui/configGeneral.qml:465
-msgid "Reset to original color"
-msgstr "Auf ursprüngliche Farbe zurücksetzen"
-
-#: contents/ui/configGeneral.qml:472
-msgid "Apply"
-msgstr "Anwenden"
-
-#: contents/ui/configGeneral.qml:481
-msgid "No changes to apply"
-msgstr "Keine Änderungen zum Anwenden"
-
-#: contents/ui/configGeneral.qml:481
-msgid "Invalid color selected"
-msgstr "Ungültige Farbe ausgewählt"
-
-#: contents/ui/configGeneral.qml:486
-msgid "OK"
-msgstr "OK"
+#~ msgid "Reset Configuration"
+#~ msgstr "Konfiguration zurücksetzen"
