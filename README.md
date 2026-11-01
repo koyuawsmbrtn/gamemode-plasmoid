@@ -12,7 +12,7 @@ This widget shows a gaming controller icon in your Plasma panel that changes col
 - **Real-time Updates**: Polls gamemode status every 2 seconds
 - **Theme Integration**: Uses system colors and adapts to light/dark themes
 - **Smooth Animations**: Color transitions with smooth animations
-- **Memory Efficient**: Proper cleanup to prevent memory leaks
+- **Memory Efficient**: Reuses a single data source instead of creating one per poll
 
 ## Visual States
 
@@ -60,9 +60,9 @@ gamemodechecker/
 ## How It Works
 
 1. **Status Checking**: The `check.sh` script runs `gamemoded -s` to check gamemode status
-2. **Polling**: A QML Timer executes the script every 2 seconds
+2. **Polling**: The data source's `interval` property re-runs the script every 2 seconds
 3. **Visual Update**: Based on script output ("active" or "inactive"), the icon color changes
-4. **Memory Management**: Each execution uses a unique command to force fresh results while properly cleaning up previous connections
+4. **Efficient Polling**: A single, constant data source is re-executed every 2 seconds via the `interval` property, avoiding per-poll QML metaobject rebuilds
 
 ## Technical Details
 
